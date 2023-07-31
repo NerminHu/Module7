@@ -1,1 +1,6 @@
+Dataset filename: video_games_sales.csv
+This dataset contains 
 
+The Raw dataset can be downloaded from https://www.kaggle.com/datasets/rush4ratio/video-game-sales-with-ratings
+
+The dataset is uploaded into HDinsight using the following schema and commands:
