@@ -1,1 +1,61 @@
-
+aggregate the data for extracting insights using the following command:
+    table showing the average critic score for Sports games:
+  
+      CREATE TABLE sports_critic_scores AS
+      SELECT AVG(critic_score) AS sports_critic_score
+      FROM video_game_sales
+      WHERE genre = 'Sports';
+      
+      table showing the average critic score for Shooter games:
+      
+      CREATE TABLE shooter_critic_scores AS
+      SELECT AVG(critic_score) AS shooter_critic_score
+      FROM video_game_sales
+      WHERE genre = 'Shooter';
+      ---------------------------------------------------------
+      Create 3 statistics tables:
+      
+      table showing all games:
+      
+      CREATE TABLE all_games_statistics AS
+      SELECT AVG(global_sales) AS average_global_sales,
+         MIN(global_sales) AS min_global_sales,
+         MAX(global_sales) AS max_global_sales
+      FROM video_game_sales;
+      
+      table showing Sports games:
+      CREATE TABLE sports_games_statistics AS
+      SELECT AVG(global_sales) AS average_global_sales,
+             MIN(global_sales) AS min_global_sales,
+             MAX(global_sales) AS max_global_sales
+      FROM video_game_sales
+      WHERE genre = 'Sports';
+      
+       table showing Shooter games:
+      CREATE TABLE shooter_games_statistics AS
+      SELECT AVG(global_sales) AS average_global_sales,
+             MIN(global_sales) AS min_global_sales,
+             MAX(global_sales) AS max_global_sales
+      FROM video_game_sales
+      WHERE genre = 'Shooter';
+      -------------------------------------------------------
+      
+      Create two tables to store the global sales and count of games with that global sales for Sports games and Shooter games.
+          Name the columns as "global_sales" and "count"
+      
+      table showing Sports games:
+      CREATE TABLE sports_games_sales_count AS
+      SELECT global_sales, COUNT(*) AS count
+      FROM video_game_sales
+      WHERE genre = 'Sports'
+      GROUP BY global_sales;
+      
+      
+      table showing Shooter games:
+      CREATE TABLE shooter_games_sales_count AS
+      SELECT global_sales, COUNT(*) AS count
+      FROM video_game_sales
+      WHERE genre = 'Shooter'
+      GROUP BY global_sales;
+    
+    
