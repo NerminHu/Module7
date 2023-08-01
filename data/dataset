@@ -1,6 +1,31 @@
 Dataset filename: video_games_sales.csv
-This dataset contains 
+This dataset contains video games names,platform, yer of release, pubisher, and sales in according to countries...
 
 The Raw dataset can be downloaded from https://www.kaggle.com/datasets/rush4ratio/video-game-sales-with-ratings
 
 The dataset is uploaded into HDinsight using the following schema and commands:
+    CREATE TABLE IF NOT EXISTS video_game_sales (
+      Name string,
+      Platform string,
+      Year_of_release int,
+      Genre string,
+      Publisher string,
+      NA_Sales float,
+      EU_Sales float,
+      JP_Sales float,
+      Other_Sales float,
+      Global_Sales float,
+      Critic_Score int,
+      Critic_Count int,
+      User_Score string,
+      User_Count int,
+      Developer string,
+      Rating string)
+      ROW FORMAT DELIMITED
+      FIELDS TERMINATED BY ','
+      STORED AS TEXTFILE;
+
+    LOAD DATA LOCAL INPATH 'Video_Games_Sales.csv' INTO TABLE video_game_sales;
+  
+    SELECT * FROM video_game_sales WHERE Developer = 'Nintendo';
+
