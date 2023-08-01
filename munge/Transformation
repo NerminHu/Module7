@@ -1,1 +1,13 @@
-
+Transform the database using the following command:
+  CREATE TABLE IF NOT EXISTS sales_genre (
+    Genre string,
+    Global_Sales float,
+    Critic_Score int);
+    
+    INSERT INTO sales_genre SELECT Genre, Global_Sales, Critic_Score from video_game_sales;
+    
+    SELECT ROUND(Global_Sales) AS Rounded_Sales FROM sales_genre;
+    
+    SELECT * FROM sales_genre WHERE Critic_Score > 0;
+    
+    SELECT * FROM sales_genre ORDER BY Critic_Score DESC;
